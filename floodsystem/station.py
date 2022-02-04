@@ -7,6 +7,9 @@ for manipulating/modifying station data
 """
 
 
+#from hd465.floodsystem.stationdata import update_water_levels
+
+
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
@@ -47,6 +50,14 @@ class MonitoringStation:
                 return True
             else :
                 return False
+        else:
+            return None
+
+    def relative_water_level(self):
+        if self.typical_range_consistent() == True :
+            return (self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])    
+        else: 
+            return None
 
 def inconsistent_typical_range_stations(stations):
     stations_with_inconsistent_data = []
