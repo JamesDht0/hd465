@@ -39,4 +39,5 @@ def test_typical_range_consistent():
         assert s.typical_range_consistent() == True or s.typical_range_consistent() == False
 
 def test_inconsistent_typical_range_stations():
+    stations = build_station_list()
     assert type(inconsistent_typical_range_stations(stations)) == list
