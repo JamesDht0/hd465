@@ -1,5 +1,12 @@
-from floodsystem.geo import stations_within_radius
 from floodsystem.stationdata import build_station_list
+
+def stations_within_radius(stations, centre, r):
+  stationList = []
+  stationDistanceList = stations_by_distance(stations, centre)
+  for i in stationDistanceList:
+    if i[1] < r:
+      stationList.append(i[0])
+  return stationList
 
 stations = build_station_list()
 
